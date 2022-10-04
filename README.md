@@ -1,8 +1,8 @@
 # How to create the directional compass using .NET MAUI Radial Gauge
 
-This repository describes how to create the directional compass using the [Syncfusion .NET MAUI Radial Gauge](https://help.syncfusion.com/maui/radial-gauge/getting-started) control.
+This repository contains sample for how to create the directional compass using the [Syncfusion .NET MAUI Radial Gauge](https://help.syncfusion.com/maui/radial-gauge/getting-started) control.
 
-For KB refer this [link](https://www.syncfusion.com/kb/13092/how-to-design-a-directional-compass-using-net-maui-radial-gauge-sfradialgauge).
+Please refer the KB through this [link](https://www.syncfusion.com/kb/13092/how-to-design-a-directional-compass-using-net-maui-radial-gauge-sfradialgauge).
 
 ## Syncfusion controls
 
