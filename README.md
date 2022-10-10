@@ -1,126 +1,54 @@
-# How-to-create-the-directional-compass-using-the-.NET-MAUI-Radial-Gauge
-This article describes how to create the directional compass using the [Syncfusion .NET MAUI Radial Gauge](https://www.syncfusion.com/maui-controls/maui-radial-gauge) control.
+# How to create the directional compass using .NET MAUI Radial Gauge
 
-**Step 1:** Create the [SfRadialGauge](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.SfRadialGauge.html) control by referring to this getting started [link](https://help.syncfusion.com/maui/radialgauge/getting-started#creating-an-application-using-the-net-maui-radial-gauge). Set the [StartAngle](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html#Syncfusion_Maui_Gauges_RadialAxis_StartAngle) and [EndAngle](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html#Syncfusion_Maui_Gauges_RadialAxis_EndAngle) of [RadialAxis](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html) as 320 to heading the North value as 0 and get the full circular axis.
+This repository contains sample to create the directional compass using the [Syncfusion .NET MAUI Radial Gauge](https://help.syncfusion.com/maui/radial-gauge/getting-started) control.
 
-[C#]
-```
-<gauge:SfRadialGauge>
-        <gauge:SfRadialGauge.Axes>
-            <gauge:RadialAxis … >
-               …
-                <gauge:RadialAxis.BackgroundContent>
-                    <Image Source="dark_theme_gauge.png"/>
-                </gauge:RadialAxis.BackgroundContent>
-            </gauge:RadialAxis>
-        </gauge:SfRadialGauge.Axes>
- </gauge:SfRadialGauge>
-```
+Please refer the KB through this [link](https://www.syncfusion.com/kb/13092/how-to-design-a-directional-compass-using-net-maui-radial-gauge-sfradialgauge).
 
-**Step 2:** Set the [Minimum](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html#Syncfusion_Maui_Gauges_RadialAxis_Minimum) and [Maximum](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html#Syncfusion_Maui_Gauges_RadialAxis_Maximum) of the radial axis as 0 and 360, respectively, and the [Interval](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html#Syncfusion_Maui_Gauges_RadialAxis_Interval) as 30 to display eight direction values in the radial axis.
+## Syncfusion controls
 
-[XAML]
-```
-<gauge:SfRadialGauge>
-    <gauge:SfRadialGauge.Axes>
-        <gauge:RadialAxis Minimum="0"
-                          Maximum="360"
-                          Interval="30" … >
-            …
-        </gauge:RadialAxis>
-    </gauge:SfRadialGauge.Axes>
-</gauge:SfRadialGauge>
-```
+This project used the following Syncfusion control(s):
+* [SfRadialGauge](https://www.syncfusion.com/maui-controls/maui-radial-gauge)
 
-**Step 3:** To customize the major and minor ticks, you can use the [MajorTickStyle](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html#Syncfusion_Maui_Gauges_RadialAxis_MajorTickStyle) and [MinorTickStyle](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.RadialAxis.html#Syncfusion_Maui_Gauges_RadialAxis_MinorTickStyle) as shown in the following code sample.
+## Supported platforms
 
-[XAML]
-```
-<gauge:RadialAxis.MinorTickStyle>
-    <gauge:RadialTickStyle LengthUnit="Factor"
-                           Length="0.12" />
-</gauge:RadialAxis.MinorTickStyle>
-<gauge:RadialAxis.MajorTickStyle>
-    <gauge:RadialTickStyle StrokeThickness="2" … />
-</gauge:RadialAxis.MajorTickStyle>
-```
+.NET Multi-platform App UI (.NET MAUI) apps can be written for the following platforms:
 
-**Step 4:** Add two [Needle Pointers](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.NeedlePointer.html) to divide the gauge into four parts: north, east, south, and west.
+* Android 5.0 (API 21) or higher.
+* iOS 10 or higher.
+* macOS 10.13 or higher, using Mac Catalyst.
+* Windows 11 and Windows 10 version 1809 or higher, using [Windows UI Library (WinUI) 3](https://learn.microsoft.com/en-us/windows/apps/winui/winui3/).
 
-[XAML]
-```
-<gauge:RadialAxis.Pointers>
-    …
-    <gauge:NeedlePointer Value="310"
-                         NeedleLengthUnit="Factor"
-                         NeedleLength="0.9"
-                         NeedleStartWidth="1"
-                         NeedleEndWidth="1"
-                         NeedleFill="#FFC4C4C4"
-                         KnobRadius="0"
-                         TailLengthUnit="Factor"
-                         TailLength="0.9"
-                         TailWidth="1"
-                         TailFill="#FFC4C4C4">
-    </gauge:NeedlePointer>
-    <gauge:NeedlePointer Value="221" … >
-    </gauge:NeedlePointer>
-</gauge:RadialAxis.Pointers>
-```
+## Requirements to run the sample
 
-**Step 5:** To denote the directions, you can use [Annotations](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Gauges.GaugeAnnotation.html) as shown in the following code sample.
+* [Visual Studio 2022 Preview](https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes-preview) version 17.3.4 or higher (.NET MAUI version 6.0.486) or [Visual Studio 2022 for Mac Preview](https://visualstudio.microsoft.com/vs/mac/preview/) version 17.4 .
+* .NET 6.0
 
-[XAML]
-```
-<gauge:RadialAxis.Annotations>
-    <gauge:GaugeAnnotation DirectionValue="230"
-                           PositionFactor="0.5">
-        <gauge:GaugeAnnotation.Content>
-            <Label Text="W"
-                   FontAttributes="Bold"
-                   FontSize="18"
-                   TextColor="Black" />
-        </gauge:GaugeAnnotation.Content>
-    </gauge:GaugeAnnotation>
-    <gauge:GaugeAnnotation DirectionValue="310" …>
-        …
-    </gauge:GaugeAnnotation>
-    <gauge:GaugeAnnotation DirectionValue="129"…>
-        …
-    </gauge:GaugeAnnotation>
-    <gauge:GaugeAnnotation DirectionValue="50" …>
-        …
-    </gauge:GaugeAnnotation>
-</gauge:RadialAxis.Annotations>
-```
+Refer to the following link for more details: [System Requirements](https://help.syncfusion.com/maui/system-requirements)
 
-**Step 6:** Add a shape pointer to indicate the direction as follows.
+## How to run the sample
 
-[XAML]
-```
-<gauge:RadialAxis.Pointers>
-    <gauge:ShapePointer Value="90"
-                        ShapeType="Triangle" />
-    …
-</gauge:RadialAxis.Pointers>
-```
+1. Clone the sample and open it in Visual Studio 2022 Preview.
 
-[Output]
+   *Note: If you download the sample using the "Download ZIP" option, right-click it, select Properties, and then select Unblock.*
 
-![](Output.png)
+2. Register your license key in the App.cs file as demonstrated in the following code.
 
-## See also
+		public App()
+		{
+			//Register Syncfusion license
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY");
+		
+			InitializeComponent();
+		
+			MainPage = new MainPage();
+		}
+		
+	Refer to this [link](https://help.syncfusion.com/maui/licensing/overview) for more details.
+	
+3. Clean and build the application.
 
-[How to create an application using the .NET MAUI Radial Gauge?](https://help.syncfusion.com/maui/radialgauge/getting-started#creating-an-application-using-the-net-maui-radial-gauge)
+4. Run the application.
 
-[How to customize Axis?](https://help.syncfusion.com/maui/radialgauge/axes#axis-customization)
+## License
 
-[How to customize Axis Label?](https://help.syncfusion.com/maui/radialgauge/axes?cs-save-lang=1&cs-lang=csharp#axis-label-customization)
-
-[How to customize Axis Label using Label Created Event?](https://help.syncfusion.com/maui/radialgauge/axes?cs-save-lang=1&cs-lang=csharp#labelcreated)
-
-[How to customize Ticks?](https://help.syncfusion.com/maui/radialgauge/axes?cs-save-lang=1&cs-lang=csharp#tick-customization)
-
-[How to customize the Needle pointer?](https://help.syncfusion.com/maui/radialgauge/needle-pointer#needle-customization)
-
-[How to position and customize annotation?](https://help.syncfusion.com/maui/radialgauge/annotation)
+Syncfusion has no liability for any damage or consequence that may arise by using or viewing the samples. The samples are for demonstrative purposes, and if you choose to use or access the samples, you agree to not hold Syncfusion liable, in any form, for any damage that is related to use, for accessing, or viewing the samples. By accessing, viewing, or seeing the samples, you acknowledge and agree Syncfusion’s samples will not allow you seek injunctive relief in any form for any claim related to the sample. If you do not agree to this, do not view, access, utilize, or otherwise do anything with Syncfusion’s samples.
